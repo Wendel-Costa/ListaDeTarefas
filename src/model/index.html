@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LISTA DE TAREFAS</title>
+<!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- googlefonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<!-- js -->
+    <script type="module" src="src/interface/app.js" defer></script>
+</head>
+
+<body>
+    <div class="container1">
+        <div class="to-do-container">
+            <header>
+                <h1>TAREFAS</h1>
+            </header>
+
+        <!-- Formulário -->
+            <form id="todo-form" autocomplete="off">
+                <input type="text" id="nome" placeholder="Nome da tarefa" required>
+                <input type="text" id="descricao" placeholder="Descrição da tarefa" required>
+
+                <select id="status">
+                    <option value="Disponível">Disponível</option>
+                    <option value="Fazendo">Fazendo</option>
+                    <option value="Feita">Feita</option>
+                </select>
+
+                <button type="submit">Adicionar</button>
+            </form>
+
+        <!-- Filtro -->
+        <!-- Filtro -->
+        <div id="filtro-container">
+            <label for="filtro-status">Filtrar por status:</label>
+            <select id="filtro-status">
+                <option value="Todos">Todos</option>
+                <option value="Disponível">Disponível</option>
+                <option value="Fazendo">Fazendo</option>
+                <option value="Feita">Feita</option>
+            </select>
+        </div>
+
+        <!-- Lista -->
+        <section id="lista-container">
+            <h3 id="titulo-lista">Lista de Tarefas</h3>
+            <ul id="lista-todos"></ul>
+        </section>
+    </div>
+</body>
+
+</html>
+
