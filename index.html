@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="to-do-container">
+        <header>
+            <h1>Minhas tarefas</h1>
+        </header>
+
+        <!-- Formulário -->
+        <form id="todo-form" autocomplete="off">
+            <input type="text" id="nome" placeholder="Nome da tarefa" required>
+            <input type="text" id="descricao" placeholder="Descrição da tarefa" required>
+
+            <select id="status">
+                <option value="Disponível">Disponível</option>
+                <option value="Fazendo">Fazendo</option>
+                <option value="Feita">Feita</option>
+            </select>
+
+            <button type="submit">Adicionar</button>
+        </form>
+
+        <!-- Filtro -->
+        <div id="filtro-container">
+            <label>Filtrar por status:</label>
+            <select id="filtro-status">
+                <option value="Todos">Todos</option>
+                <option value="Disponível">Disponível</option>
+                <option value="Fazendo">Fazendo</option>
+                <option value="Feita">Feita</option>
+            </select>
+        </div>
+
+        <!-- Lista -->
+        <section id="lista-container" style="display: none;">
+            <h3 id="titulo-lista">Lista de Tarefas</h3>
+            <ul id="lista-todos"></ul>
+        </section>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
