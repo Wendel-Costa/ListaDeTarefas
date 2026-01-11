@@ -53,12 +53,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
             filtradas.forEach(tarefa => {
                 const li = document.createElement('li');
+                li.classList.add('todo-item');
+
+                const status = tarefa.obterStatus().toLowerCase();
+
                 li.innerHTML = `
-          <strong>${tarefa.nome}</strong><br>
-          <span>${tarefa.descricao}</span><br>
-          <em>Status: ${tarefa.obterStatus()}</em><br>
-          <button>Remover</button>
-        `;
+        <div class="todo-info">
+            <strong>${tarefa.nome}</strong>
+            <span>${tarefa.descricao}</span>
+            <span class="status ${status}">${tarefa.obterStatus()}</span>
+        </div>
+
+        <div class="todo-acoes">
+            <button class="btn-remover">Remover</button>
+        </div>
+    `;
 
                 li.querySelector('button').onclick = () => {
                     this.controller.removerTarefa(tarefa.id);
