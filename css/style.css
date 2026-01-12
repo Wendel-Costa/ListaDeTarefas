@@ -59,7 +59,7 @@ body {
 #todo-form textarea {
     width: 100%;
     min-height: 80px;
-    height: auto;              /* CRÍTICO */
+    height: auto;            
     border-radius: 8px;
     border: 2px solid #c3dedc;
     padding: 10px;
@@ -146,7 +146,7 @@ body {
     flex-direction: column;
     gap: 4px;
     width: 100%;
-    min-width: 0; /* ESSENCIAL PARA FLEX */
+    min-width: 0; 
 }
 
 .todo-info strong {
@@ -155,7 +155,7 @@ body {
 
 /* DESCRIÇÃO */
 .descricao {
-    margin: 0;                 /* remove espaço extra do <p> */
+    margin: 0;            
     padding: 0;
     font-size: 0.8rem;
     opacity: 0.8;
