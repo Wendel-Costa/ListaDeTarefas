@@ -24,8 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const descricao = document.getElementById('descricao').value;
                 const status = document.getElementById('status').value;
 
-                console.log('Criando tarefa:', nome, descricao, status);
-
                 this.controller.criarTarefa(nome, descricao, status);
                 this.form.reset();
             });
@@ -38,8 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         renderizar() {
             const filtro = this.filtroStatus.value;
             const tarefas = this.controller.listarTarefas();
-
-            console.log('Renderizando tarefas:', tarefas);
 
             this.lista.innerHTML = '';
 
@@ -58,18 +54,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 const status = tarefa.obterStatus().toLowerCase();
 
                 li.innerHTML = `
-        <div class="todo-info">
-            <strong>${tarefa.nome}</strong>
-            <span>${tarefa.descricao}</span>
-            <span class="status ${status}">${tarefa.obterStatus()}</span>
-        </div>
+                    <div class="todo-info">
+                        <strong>${tarefa.nome}</strong>
+                        <p class="descricao">${tarefa.descricao}</p>
+                        <span class="status ${status}">
+                            ${tarefa.obterStatus()}
+                        </span>
+                    </div>
 
-        <div class="todo-acoes">
-            <button class="btn-remover">Remover</button>
-        </div>
-    `;
+                    <div class="todo-acoes">
+                        <button class="btn-remover">Remover</button>
+                    </div>
+                `;
 
-                li.querySelector('button').onclick = () => {
+                li.querySelector('.btn-remover').onclick = () => {
                     this.controller.removerTarefa(tarefa.id);
                 };
 

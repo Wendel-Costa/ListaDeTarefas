@@ -17,8 +17,19 @@
 
         <!-- Formulário -->
         <form id="todo-form" autocomplete="off">
-            <input type="text" id="nome" placeholder="Nome da tarefa" required>
-            <input type="text" id="descricao" placeholder="Descrição da tarefa" required>
+            <input
+                type="text"
+                id="nome"
+                placeholder="Nome da tarefa"
+                required
+            >
+
+            <textarea
+                id="descricao"
+                placeholder="Descrição da tarefa"
+                rows="3"
+                required
+            ></textarea >
 
             <select id="status">
                 <option value="Disponível">Disponível</option>
@@ -28,6 +39,7 @@
 
             <button type="submit">Adicionar</button>
         </form>
+
 
         <!-- Filtro -->
         <div id="filtro-container">
