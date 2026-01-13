@@ -33,4 +33,16 @@ export class TarefaController {
             default: return new StatusDisponivel();
         }
     }
+
+    alterarStatus(id, novoStatusTexto) {
+        const tarefa = repositorioTarefas.buscarPorId(id);
+
+        if (!tarefa) return;
+
+        const novoStatus = this.criarStatus(novoStatusTexto);
+        tarefa.alterarStatus(novoStatus);
+
+        this.view.renderizar();
+    }
+
 }

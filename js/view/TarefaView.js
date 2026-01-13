@@ -51,15 +51,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 const li = document.createElement('li');
                 li.classList.add('todo-item');
 
-                const status = tarefa.obterStatus().toLowerCase();
+                const statusAtual = tarefa.obterStatus();
+                const statusClasse = statusAtual.toLowerCase();
 
                 li.innerHTML = `
                     <div class="todo-info">
                         <strong>${tarefa.nome}</strong>
                         <p class="descricao">${tarefa.descricao}</p>
-                        <span class="status ${status}">
-                            ${tarefa.obterStatus()}
+
+                        <span class="status ${statusClasse}">
+                            ${statusAtual}
                         </span>
+
+                        <select class="alterar-status">
+                            <option value="Disponível" ${statusAtual === 'Disponível' ? 'selected' : ''}>Disponível</option>
+                            <option value="Fazendo" ${statusAtual === 'Fazendo' ? 'selected' : ''}>Fazendo</option>
+                            <option value="Feita" ${statusAtual === 'Feita' ? 'selected' : ''}>Feita</option>
+                        </select>
                     </div>
 
                     <div class="todo-acoes">
@@ -69,6 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 li.querySelector('.btn-remover').onclick = () => {
                     this.controller.removerTarefa(tarefa.id);
+                };
+
+                li.querySelector('.alterar-status').onchange = (e) => {
+                    this.controller.alterarStatus(tarefa.id, e.target.value);
                 };
 
                 this.lista.appendChild(li);
