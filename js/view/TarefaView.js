@@ -5,17 +5,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     class TarefaView {
         constructor() {
-            this.controller = new TarefaController(this);
 
             this.form = document.getElementById('todo-form');
             this.lista = document.getElementById('lista-todos');
             this.containerLista = document.getElementById('lista-container');
             this.filtroStatus = document.getElementById('filtro-status');
 
-            if (!this.form || !this.lista) {
+            if (!this.form || !this.lista || !this.filtroStatus) {
                 console.error('Elementos do DOM não encontrados');
                 return;
             }
+
+            this.controller = new TarefaController(this);
+
+            this.renderizar();
 
             this.form.addEventListener('submit', e => {
                 e.preventDefault();
